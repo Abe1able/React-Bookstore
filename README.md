@@ -143,7 +143,8 @@ You can deploy this project using netlify.
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-
+- **[Add_Books_From_API]**
+- **[Implement_Navigation]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
