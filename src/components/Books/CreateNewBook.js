@@ -4,24 +4,15 @@ import { PropTypes } from 'prop-types';
 const CreateNewBook = (props) => {
   const { submitBookToStoreProps } = props;
 
-  const [inputBook, setInputBook] = useState({
-    title: '',
-  });
-
-  const onChange = (e) => {
-    setInputBook({
-      ...inputBook,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [inputBookTitle, setInputBookTitle] = useState('');
+  const [inputBookAuthor, setInputBookAuthor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputBook.title.trim()) {
-      submitBookToStoreProps(inputBook.title);
-      setInputBook({
-        title: '',
-      });
+    if (inputBookTitle.trim()) {
+      submitBookToStoreProps(inputBookTitle, inputBookAuthor);
+      setInputBookTitle('');
+      setInputBookAuthor('');
     }
   };
 
@@ -34,8 +25,17 @@ const CreateNewBook = (props) => {
           placeholder="Book title"
           className="grid-item"
           name="title"
-          value={inputBook.title}
-          onChange={onChange}
+          value={inputBookTitle}
+          onChange={(e) => setInputBookTitle(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          className="grid-item"
+          name="author"
+          value={inputBookAuthor}
+          onChange={(e) => setInputBookAuthor(e.target.value)}
           required
         />
         <select className="grid-item">
