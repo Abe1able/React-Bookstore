@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
+import { addbook, getBooks } from '../../redux/books/books';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateNewBook = (props) => {
   const { submitBookToStoreProps } = props;
@@ -9,11 +12,21 @@ const CreateNewBook = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputBookTitle.trim()) {
-      submitBookToStoreProps(inputBookTitle, inputBookAuthor);
-      setInputBookTitle('');
-      setInputBookAuthor('');
-    }
+    // if (inputBookTitle.trim()) {
+    //   submitBookToStoreProps(inputBookTitle, inputBookAuthor);
+    //   setInputBookTitle('');
+    //   setInputBookAuthor('');
+    // }
+    const book = {
+      id: uuidv4(),
+      inputBookAuthor,
+      inputBookTitle,
+      category: '',
+    };
+    dispatch(addbook(book));
+    setInputBookTitle('');
+    setInputBookAuthor('');
+    dispatch(getBooks());
   };
 
   return (

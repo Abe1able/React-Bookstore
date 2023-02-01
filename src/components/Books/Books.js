@@ -1,41 +1,41 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { useDispatch, connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { addBook, removeBook } from '../../redux/books/books';
-import BookList from './BookList';
-import CreateNewBook from './CreateNewBook';
-import styles from './Books.module.css';
+import { useDispatch } from 'react-redux';
+// import { v4 as uuidv4 } from 'uuid';
+import { removeBook, getBooks } from '../../redux/books/books';
+// import BookList from './BookList';
+// import CreateNewBook from './CreateNewBook';
+// import styles from './Books.module.css';
 
 const Books = (props) => {
-  const { books } = props;
+  const { title, author, id } = props;
   const dispatch = useDispatch();
-  const removeBookFromStore = (id) => {
+  const deleteBook = (id) => {
     dispatch(removeBook(id));
+    dispatch(getBooks(id));
   };
 
-  const submitBookToStore = (title) => {
-    const newBook = {
-      id: uuidv4(),
-      bookName: title,
-    };
-    dispatch(addBook(newBook));
-  };
+  // const submitBookToStore = (title) => {
+  //   const newBook = {
+  //     id: uuidv4(),
+  //     bookName: title,
+  //   };
+  //   dispatch(addBook(newBook));
+  // };
 
   return (
-    <div className={styles.main_page}>
-      <BookList books={books} removeBookProps={removeBookFromStore} />
-      <CreateNewBook submitBookToStoreProps={submitBookToStore} />
+    <div className="book-item">
+      <p>{title}</p>
+      <p>{author}</p>
+      <button type="button" onClick={() => deleteBook(id)}>Delete</button>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  books: state.booksReducer,
-});
+Books.propTypes = ({
+  title: PropTypes.string,
+  author: PropTypes.string,
+  id: PropTypes.string,
+}).isRequired;
 
-Books.propTypes = {
-  books: PropTypes.instanceOf(Array).isRequired,
-};
-
-export default connect(mapStateToProps)(Books);
+export default Books;
