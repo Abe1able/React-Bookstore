@@ -8,7 +8,11 @@ const BookComponent = (props) => {
 
   return (
     <li className={styles.book_section}>
-      { book.bookName }
+      { book.title }
+      <br />
+      { book.author }
+      <br />
+      { book.category }
       <br />
       <br />
       <button type="button" onClick={() => removeBookProps(id)}>Remove</button>

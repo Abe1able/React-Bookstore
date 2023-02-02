@@ -4,15 +4,24 @@ import { PropTypes } from 'prop-types';
 const CreateNewBook = (props) => {
   const { submitBookToStoreProps } = props;
 
-  const [inputBookTitle, setInputBookTitle] = useState('');
-  const [inputBookAuthor, setInputBookAuthor] = useState('');
+  const [inputBook, setInputBook] = useState({ title: '' });
+
+  const [inputBookCategory, setInputBookCategory] = useState('Category');
+
+  const onChange = (e) => {
+    setInputBook({
+      ...inputBook,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputBookTitle.trim()) {
-      submitBookToStoreProps(inputBookTitle, inputBookAuthor);
-      setInputBookTitle('');
-      setInputBookAuthor('');
+    if (inputBook.title.trim()) {
+      submitBookToStoreProps(inputBook.title, inputBookCategory);
+      setInputBook({
+        title: '',
+      });
     }
   };
 
@@ -25,26 +34,27 @@ const CreateNewBook = (props) => {
           placeholder="Book title"
           className="grid-item"
           name="title"
-          value={inputBookTitle}
-          onChange={(e) => setInputBookTitle(e.target.value)}
+          value={inputBook.title}
+          onChange={onChange}
           required
         />
-        <input
-          type="text"
-          placeholder="Author"
+        <select
           className="grid-item"
-          name="author"
-          value={inputBookAuthor}
-          onChange={(e) => setInputBookAuthor(e.target.value)}
-          required
-        />
-        <select className="grid-item">
-          <option value="category">Category</option>
-          <option value="action">Action</option>
-          <option value="science-fiction">Science Fiction</option>
-          <option value="economy">Economy</option>
+          value={inputBookCategory}
+          onChange={(e) => {
+            const bookCat = e.target.value;
+            setInputBookCategory(bookCat);
+          }}
+        >
+          <option value="Category">Category</option>
+          <option value="Action">Action</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Economy">Economy</option>
         </select>
-        <button type="submit" className="grid-item">
+        <button
+          type="submit"
+          className="grid-item"
+        >
           ADD BOOK
         </button>
       </form>
