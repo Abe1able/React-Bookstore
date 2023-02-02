@@ -6,20 +6,13 @@ const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 const GET_BOOK = 'bookstore/books/GET_BOOK';
 
-const initialState = [
-  {
-    id: uuidv4(),
-    bookName: 'Sample Book One',
+const fetchBooks = createAsyncThunk(
+  GET_BOOK,
+  async () => {
+    const elem = await getBooks();
+    return elem;
   },
-  {
-    id: uuidv4(),
-    bookName: 'Sample Book Two',
-  },
-  {
-    id: uuidv4(),
-    bookName: 'Sample Book Three',
-  },
-];
+);
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -32,15 +25,14 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export const addBook = createAsyncThunk(ADD_BOOK, 
+export const addBook = createAsyncThunk(ADD_BOOK,
   async (elem) => {
     await addBooksItem(elem);
     return elem;
-  }, 
-  );
-
+  },
+);
 export const removeBook = createAsyncThunk(REMOVE_BOOK, async (id) => {
-  await removeBooksItem(id);
+  await removeBookItem(id);
   return elem;
 });
 

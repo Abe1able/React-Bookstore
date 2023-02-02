@@ -20,6 +20,6 @@ export const addBooksItem = async (elements) => {
 export const removeBookItem = async (id) => {
   const removeBook = await fetch(`URL${id}`, {
     method: 'DELETE',
-    }).then((response) => response.text());
-    return removeBook;
+  }).then((response) => response.text());
+  return removeBook;
 };
