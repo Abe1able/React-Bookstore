@@ -1,25 +1,28 @@
+import axios from 'axios';
+
 const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/MUUGSyLKPFVh40o1XTap/books';
-
-export const getBooks = async () => {
-  const getBookItems = await fetch(URL).then((res) => res.json());
-  console.log(getBookItems);
-  return getBookItems;
-};
-
+const URL2 = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/qtOKYcCunaSKvD8warou/books';
 export const addBooksItem = async (elements) => {
-  const postBooks = await fetch(URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(elements),
-  }).then((response) => response.text());
-  return postBooks;
+  const {id, title, author, category,} = elements;
+    await axios.post(URL, {
+      item_id: id, title, author, category,
+    });
+  return elements;
 };
 
 export const removeBookItem = async (id) => {
-  const removeBook = await fetch(`URL${id}`, {
-    method: 'DELETE',
-  }).then((response) => response.text());
-  return removeBook;
+    await axios.delete(`URL/${id}`);
+  return id;
 };
+
+const renderBooks = (response) => Object.entries(response.data).map((arr) => {
+    const [id, [{ title, author, category }]] = arr;
+    return {
+      id, title, author, category,
+    };
+  });
+  
+  export const getBooks = async () => {
+    const getbookItems = await axios.get(URL)
+    return renderBooks(getbookItems)
+  };
