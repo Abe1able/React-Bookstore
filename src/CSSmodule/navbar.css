@@ -1,0 +1,58 @@
+header {
+  height: 70px;
+  width: inherit;
+  padding: 0 3rem;
+  background-color: #fff;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.size {
+  font-size: 32px;
+  color: #227ded;
+}
+
+link {
+  font-size: 30px;
+}
+
+.menuList {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.links {
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(221, 235, 250);
+}
+
+.mainLink {
+  color: black;
+  font-weight: 700;
+}
+
+.links:focus {
+  color: rgb(7, 7, 7);
+  transform: scale(1.2);
+}
+
+.logo {
+  font-size: 48px;
+  color: #0290ff;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.logo:focus {
+  color: #0290ff;
+}

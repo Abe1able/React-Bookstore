@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&display=swap');
+
 body {
   margin: 0;
   font-family:
@@ -14,14 +16,42 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 4rem 6rem;
+  background-color: rgb(233, 232, 232);
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  background-color: rgb(223, 223, 223);
+  box-shadow: 30px 25px 25px silver;
+  border-radius: 5px;
+}
+
+.categoryEL {
+  width: 70vw;
+  max-width: 500px;
+  height: max-content;
+  max-height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.05rem 0.05rem 5px rgb(108, 108, 108);
+  border-radius: 5px;
+  font-weight: 550;
+  padding: 1rem;
+  text-align: center;
+}
+
+.btnEL {
+  padding: 10px;
+  font-size: 25px;
+  color: #fff;
+  background-color: #227ded;
+  border: none;
+  border-radius: 3px;
 }
