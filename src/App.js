@@ -5,13 +5,13 @@ import Categories from './pages/category';
 
 function App() {
   return (
-    <>
+    <main className="main">
       <Navbar />
       <Routes>
         <Route exact path="/" element={<BookPage />} />
         <Route exact path="/category" element={<Categories />} />
       </Routes>
-    </>
+    </main>
   );
 }
 

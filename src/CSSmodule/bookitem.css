@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&display=swap');
+
+:root {
+  --clr-primary: #0290ff;
+  --clr-primary-dark: #4386bf;
+  --clr-secondary: #121212;
+  --clr-accent: #888;
+  --clr-border-light: #e8e8e8;
+  --fs-normal: 0.875rem;
+  --fs-mid: 1.375rem;
+  --fs-larg: 2rem;
+  --fw-normal: normal;
+  --fw-bold: bold;
+  --opacity-half: 0.5;
+}
+
+.bookList {
+  list-style: none;
+  padding-top: 2rem;
+}
+
+.book-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 1em 2rem;
+  margin: 1.5rem 3rem;
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.book-category {
+  color: var(--clr-secondary);
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-bold);
+  font-family: 'Montserrat', sans-serif;
+  opacity: var(--opacity-half);
+}
+
+.book-title {
+  color: var(--clr-secondary);
+  font-size: var(--fs-mid);
+  font-weight: var(--fw-bold);
+}
+
+.actions {
+  margin: 0;
+  margin-top: 1.313em;
+  gap: calc(0.983em / 2);
+  display: flex;
+  list-style: none;
+}
+
+.actions button {
+  border: none;
+  background-color: #fff;
+}
+
+.actions button,
+.book-author {
+  color: var(--clr-primary-dark);
+  font-weight: 300;
+}
+
+.seperator {
+  background: #e8e8e8;
+  width: 0.125rem;
+  height: 1.5rem;
+}
+
+.card-middle {
+  gap: calc(1.375rem / 2);
+  display: flex;
+  align-items: center;
+}
+
+.progress-spinner {
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 5px solid var(--clr-primary);
+  border-top-color: var(--clr-border-light);
+  border-radius: 100%;
+  transform: rotate(-45deg);
+}
+
+.progress-percent {
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--fs-larg);
+  margin: 0;
+}
+
+.progress-text {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--clr-secondary);
+  opacity: var(--opacity-half);
+  margin: 0;
+}
+
+/* Card book right side */
+.card-right h4 {
+  color: var(--clr-secondary);
+  font-size: var(--fs-normal);
+  font-weight: 300;
+  opacity: var(--opacity-half);
+  margin: 0;
+}
+
+.card-right h2 {
+  color: var(--clr-secondary);
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 0.438rem;
+  margin-bottom: 1.438rem;
+}
+
+.primary-btn {
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--clr-primary);
+  font-weight: 300;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+}
